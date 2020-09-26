@@ -1,0 +1,15 @@
+{
+  "name": "@xieyuheng/test-runner",
+  "version": "0.1.1",
+  "license": "GPL-3.0-or-later",
+  "author": "Xie Yuheng",
+  "files": [
+    "src"
+  ],
+  "repository": "github:xieyuheng/test-runner",
+  "main": "src/index.js",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "fast-glob": "^3.2.4"
+  }
+}

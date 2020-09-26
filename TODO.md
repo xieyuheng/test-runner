@@ -1,0 +1,1 @@
+- `expect` and `snapshot` use matrix as second arg.
