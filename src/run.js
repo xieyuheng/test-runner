@@ -1,16 +1,15 @@
-async function run(dev) {
+async function run(commands) {
   if (process.argv.length <= 2) {
     console.log("commands:")
-    for (const name of Object.keys(dev)) console.log(`- ${name}`)
+    for (const name of Object.keys(commands)) {
+      console.log(`- ${name}`)
+    }
   }
 
-  const commands = process.argv.slice(2)
-  for (const command of commands) await dev[command]()
+  for (const name of process.argv.slice(2)) {
+    const command = commands[name]
+    await command()
+  }
 }
-
-process.on("unhandledRejection", (error) => {
-  console.error(error)
-  process.exit(1)
-})
 
 module.exports = run
