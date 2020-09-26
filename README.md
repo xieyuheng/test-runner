@@ -82,7 +82,7 @@ commands.test_lang2 = () => {
 run(commands)
 ```
 
-### Example output
+### Example usage
 
 [![asciicast](https://asciinema.org/a/xn46vvJdrLOnboJTRgwZre73K.svg)](https://asciinema.org/a/xn46vvJdrLOnboJTRgwZre73K)
 
