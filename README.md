@@ -78,7 +78,7 @@ run(commands)
 
 ### Example usage
 
-[![asciicast](https://asciinema.org/a/xn46vvJdrLOnboJTRgwZre73K.svg)](https://asciinema.org/a/xn46vvJdrLOnboJTRgwZre73K)
+[![asciicast](https://asciinema.org/a/361885.svg)](https://asciinema.org/a/361885)
 
 ## Community
 
