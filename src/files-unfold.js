@@ -3,22 +3,17 @@ const util = require("util")
 
 async function files_unfold(files) {
   if (typeof files === "string") {
-    const unfolded = []
-    const glob = files
-    for (const file of await fg(glob)) {
-      unfolded.push(file)
-    }
-    return unfolded
+    return await fg(files)
   } else if (files instanceof Array) {
     const unfolded = []
     for (const glob of files) {
-      for (const file of await fg(glob)) {
-        unfolded.push(file)
-      }
+      unfolded.push(...(await fg(glob)))
     }
     return unfolded
   } else {
-    throw new Error(`wrong argument type: ${util.inspect(files, false, null, true)}`)
+    throw new Error(
+      `wrong argument type: ${util.inspect(files, false, null, true)}`
+    )
   }
 }
 

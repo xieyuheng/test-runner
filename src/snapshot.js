@@ -1,8 +1,9 @@
 const line_report = require("./line-report")
 const chalk = require("chalk")
+const path = require("path")
 const fs = require("fs")
 
-const out = (out) => (
+const out = (out) => async (
   { command, stdout, elapse, error },
   properties
 ) => {
@@ -15,11 +16,12 @@ const out = (out) => (
   if (stdout && out) {
     const output = out(properties)
     console.log(chalk.bold.blue("  >>>"), output)
+    await fs.promises.mkdir(path.dirname(output), { recursive: true })
     fs.promises.writeFile(output, stdout)
   }
 }
 
-const err = (err, out) => (
+const err = (err, out) => async (
   { command, stdout, stderr, elapse, error },
   properties
 ) => {
@@ -30,12 +32,14 @@ const err = (err, out) => (
   if (stdout && out) {
     const output = out(properties)
     console.log(chalk.bold.blue("  >>>"), output)
+    await fs.promises.mkdir(path.dirname(output), { recursive: true })
     fs.promises.writeFile(output, stdout)
   }
 
   if (stderr && err) {
     const output = err(properties)
     console.log(chalk.bold.red("  >>>"), output)
+    await fs.promises.mkdir(path.dirname(output), { recursive: true })
     fs.promises.writeFile(output, stderr)
   }
 }
