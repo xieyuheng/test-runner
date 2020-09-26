@@ -84,7 +84,7 @@ run(commands)
 
 ### Example output
 
-[![asciicast](https://asciinema.org/a/361868.svg)](https://asciinema.org/a/361868)
+[![asciicast](https://asciinema.org/a/xn46vvJdrLOnboJTRgwZre73K.svg)](https://asciinema.org/a/xn46vvJdrLOnboJTRgwZre73K)
 
 ## Community
 
