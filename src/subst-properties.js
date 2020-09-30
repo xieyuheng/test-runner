@@ -1,6 +1,6 @@
 function subst_properties(str, properties) {
   for (const [key, value] of Object.entries(properties)) {
-    str = str.replace("$" + key, value)
+    str = str.replaceAll("$" + key, value)
   }
   return str
 }
