@@ -7,7 +7,8 @@ const cpu_count = os.cpus().length
 async function test(template, matrix, f, opts) {
   const jobs = opts?.jobs
   const array = await matrix_expand(matrix)
-  const size = jobs !== undefined ? jobs : cpu_count
+  let size = jobs !== undefined ? jobs : cpu_count - 1
+  size = Math.max(size, 1)
   for (const chunk of array_chunk(array, size)) {
     const promises = chunk.map((properties) => {
       const command = subst_properties(template, properties)
