@@ -5,7 +5,7 @@ const os = require("os")
 const cpu_count = os.cpus().length
 
 async function test(template, matrix, f, opts) {
-  const jobs = opts?.jobs
+  const jobs = opts && opts.jobs
   const array = await matrix_expand(matrix)
   let size = jobs !== undefined ? jobs : cpu_count - 1
   size = Math.max(size, 1)
