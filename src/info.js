@@ -2,7 +2,7 @@ const os = require("os")
 const cpu_count = os.cpus().length
 const chalk = require("chalk")
 
-const header = chalk.bold.green("[info]")
+const header = chalk.bold.green("(info)")
 
 function info() {
   console.log(header, {

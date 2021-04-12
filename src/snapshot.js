@@ -7,7 +7,7 @@ const out = (out) => async (
   { command, stdout, elapse, error },
   properties
 ) => {
-  const header = chalk.bold.blue("[snapshot.out]")
+  const header = chalk.bold.blue("(snapshot.out)")
 
   line_report(header, { elapse, command })
 
@@ -25,7 +25,7 @@ const err = (err, out) => async (
   { command, stdout, stderr, elapse, error },
   properties
 ) => {
-  const header = chalk.bold.red("[snapshot.err]")
+  const header = chalk.bold.red("(snapshot.err)")
 
   line_report(header, { elapse, command })
 
