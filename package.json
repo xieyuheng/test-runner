@@ -9,7 +9,7 @@
   "repository": "github:xieyuheng/test-runner",
   "main": "src/index.js",
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.1",
     "fast-glob": "^3.2.5"
   }
 }
