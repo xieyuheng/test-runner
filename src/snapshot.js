@@ -3,7 +3,7 @@ const chalk = require("chalk")
 const path = require("path")
 const fs = require("fs")
 
-const out = (out) => async ({ command, stdout, elapse, error }, properties) => {
+const out = (out) => async ({ command, stdout, stderr, elapse, error }, properties) => {
   const header = chalk.bold.blue("(snapshot.out)")
 
   line_report(header, { elapse, command })
