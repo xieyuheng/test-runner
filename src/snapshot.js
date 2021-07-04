@@ -40,6 +40,8 @@ const err = (err, out) => async (
     console.log(chalk.bold.red("  >>>"), output)
     await fs.promises.mkdir(path.dirname(output), { recursive: true })
     fs.promises.writeFile(output, stderr)
+  } else {
+    throw new Error("expect to meet error")
   }
 }
 
