@@ -1,8 +1,7 @@
+import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import fastGlob from "fast-glob"
 import app from "../../app"
-import { Command } from "../../command"
-import { CommandRunner } from "../../command-runner"
 import { TestRunner } from "../../test-runner"
 import * as ut from "../../ut"
 

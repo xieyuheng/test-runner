@@ -1,5 +1,4 @@
-import * as CommandRunners from "../command-runners"
-import { CommonHelpCommand } from "../commands"
+import { CommandRunners } from "@xieyuheng/command-line"
 import * as Commands from "./commands"
 
 export function run(): void {
@@ -9,7 +8,7 @@ export function run(): void {
       new Commands.TestCommand(),
       new Commands.SnapshotCommand(),
       new Commands.SnapshotErrorCommand(),
-      new CommonHelpCommand(),
+      new Commands.CommonHelpCommand(),
     ],
   })
 

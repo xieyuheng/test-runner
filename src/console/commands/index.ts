@@ -1,3 +1,4 @@
+export * from "@xieyuheng/command-line/lib/commands"
 export * from "./default-command"
 export * from "./snapshot-command"
 export * from "./snapshot-error-command"
