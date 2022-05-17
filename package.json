@@ -6,7 +6,7 @@
     "lib"
   ],
   "bin": {
-    "enchanter": "bin/test-runner.js"
+    "test-runner": "bin/test-runner.js"
   },
   "scripts": {
     "build": "tsc",
