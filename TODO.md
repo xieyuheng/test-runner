@@ -1,2 +1,3 @@
-- use async job queue
-- `expect` and `snapshot` use matrix as second arg.
+- remove unused code
+
+- `test-runner snapshot` should delete output file when there is no output
