@@ -56,10 +56,12 @@ export class TestResult {
       process.exit(1)
     }
 
-    // NOTE We write snapshot even `stdout` is empty,
-    //   this will ensure delete old snapshot after successful run
-    await fs.promises.mkdir(Path.dirname(output), { recursive: true })
-    await fs.promises.writeFile(output, this.stdout)
+    if (this.stdout) {
+      await fs.promises.mkdir(Path.dirname(output), { recursive: true })
+      await fs.promises.writeFile(output, this.stdout)
+    } else {
+      await fs.promises.unlink(output)
+    }
   }
 
   async snapshotError(output: string): Promise<void> {
@@ -71,10 +73,12 @@ export class TestResult {
     })
 
     if (this.stderr || this.error) {
-      // NOTE We write snapshot even `stderr` is empty,
-      //   this will ensure delete old snapshot after successful run
-      await fs.promises.mkdir(Path.dirname(output), { recursive: true })
-      await fs.promises.writeFile(output, this.stderr)
+      if (this.stderr) {
+        await fs.promises.mkdir(Path.dirname(output), { recursive: true })
+        await fs.promises.writeFile(output, this.stderr)
+      } else {
+        await fs.promises.unlink(output)
+      }
     } else {
       this.reportNonError()
       process.exit(1)
