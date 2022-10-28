@@ -60,7 +60,9 @@ export class TestResult {
       await fs.promises.mkdir(Path.dirname(output), { recursive: true })
       await fs.promises.writeFile(output, this.stdout)
     } else {
-      await fs.promises.unlink(output)
+      if (fs.existsSync(output)) {
+        await fs.promises.unlink(output)
+      }
     }
   }
 
@@ -77,7 +79,9 @@ export class TestResult {
         await fs.promises.mkdir(Path.dirname(output), { recursive: true })
         await fs.promises.writeFile(output, this.stderr)
       } else {
-        await fs.promises.unlink(output)
+        if (fs.existsSync(output)) {
+          await fs.promises.unlink(output)
+        }
       }
     } else {
       this.reportNonError()
