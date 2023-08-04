@@ -2,7 +2,7 @@ import * as ut from "../ut"
 
 export async function test(
   description: string,
-  fn: () => Promise<void>
+  fn: () => Promise<void>,
 ): Promise<void> {
   await fn()
     .then(() => {

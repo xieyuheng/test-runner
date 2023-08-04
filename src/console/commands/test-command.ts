@@ -38,7 +38,7 @@ export class TestCommand extends Command<Args, Opts> {
 
     const exclude = argv["exclude"] ? await fastGlob(argv["exclude"]) : []
     const files = (await fastGlob(argv["glob"])).filter(
-      (file) => !exclude.includes(file)
+      (file) => !exclude.includes(file),
     )
 
     for (const file of files) {
