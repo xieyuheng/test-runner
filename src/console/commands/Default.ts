@@ -1,12 +1,12 @@
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import { ty } from "@xieyuheng/ty"
+import * as Commands from "."
 import app from "../../app"
-import * as Commands from "../commands"
 
 type Args = {}
 type Opts = { help?: boolean; version?: boolean }
 
-export class DefaultCommand extends Command<Args, Opts> {
+export class Default extends Command<Args, Opts> {
   name = "default"
 
   description = "Print help or version"

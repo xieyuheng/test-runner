@@ -1,2 +1,2 @@
-export * from "./test-result"
-export * from "./test-runner"
+export * from "./TestResult"
+export * from "./TestRunner"

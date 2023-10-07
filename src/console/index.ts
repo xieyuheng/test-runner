@@ -3,11 +3,11 @@ import * as Commands from "./commands"
 
 export function run(): void {
   const runner = new CommandRunners.CommonCommandRunner({
-    defaultCommand: new Commands.DefaultCommand(),
+    defaultCommand: new Commands.Default(),
     commands: [
-      new Commands.TestCommand(),
-      new Commands.SnapshotCommand(),
-      new Commands.SnapshotErrorCommand(),
+      new Commands.Test(),
+      new Commands.Snapshot(),
+      new Commands.SnapshotError(),
       new Commands.CommonHelp(),
     ],
   })

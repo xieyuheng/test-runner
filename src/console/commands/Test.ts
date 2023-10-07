@@ -8,7 +8,7 @@ import { colors } from "../../utils/colors"
 type Args = { program: string; glob: string }
 type Opts = { exclude?: string }
 
-export class TestCommand extends Command<Args, Opts> {
+export class Test extends Command<Args, Opts> {
   name = "test"
 
   description = "Test a program over glob, for example: 'lib/**/*.test.js'"

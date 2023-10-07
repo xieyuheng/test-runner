@@ -15,4 +15,5 @@ const target = "構造-the-constructivization-of-mathematics"
 
 {
   assertEquals("a-b-c", slug("a/b/c"))
+  assertEquals("a-b-c", slug("a.b.c"))
 }

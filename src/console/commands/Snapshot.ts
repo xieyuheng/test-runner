@@ -9,7 +9,7 @@ import { slug } from "../../utils/slug"
 export type Args = { program: string; glob: string }
 export type Opts = { extern?: string; exclude?: string }
 
-export class SnapshotCommand extends Command<Args, Opts> {
+export class Snapshot extends Command<Args, Opts> {
   name = "snapshot"
 
   description = "Snapshot a program over glob, write output to .out"

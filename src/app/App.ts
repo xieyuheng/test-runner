@@ -1,5 +1,5 @@
 import * as Loggers from "../loggers"
-import { AppConfig } from "./app-config"
+import { AppConfig } from "./AppConfig"
 
 export class App {
   config = new AppConfig()

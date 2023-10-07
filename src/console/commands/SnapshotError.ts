@@ -9,7 +9,7 @@ import { slug } from "../../utils/slug"
 type Args = { program: string; glob: string }
 type Opts = { extern?: string; exclude?: string }
 
-export class SnapshotErrorCommand extends Command<Args, Opts> {
+export class SnapshotError extends Command<Args, Opts> {
   name = "snapshot-error"
 
   description = "Snapshot a program for error over glob, write output to .err"
