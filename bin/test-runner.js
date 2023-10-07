@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const cli = require("../lib/console")
+const cli = require("../lib/command-line")
 const process = require("process")
 
 process.on("unhandledRejection", (error) => {
