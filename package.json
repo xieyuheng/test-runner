@@ -1,6 +1,6 @@
 {
   "name": "@xieyuheng/test-runner",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "repository": "github:xieyuheng/test-runner",
   "files": [
     "lib"
