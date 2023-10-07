@@ -1,5 +1,5 @@
 import { Command, CommandRunner } from "@xieyuheng/command-line"
-import ty from "@xieyuheng/ty"
+import { ty } from "@xieyuheng/ty"
 import fastGlob from "fast-glob"
 import app from "../../app"
 import { TestRunner } from "../../test-runner"

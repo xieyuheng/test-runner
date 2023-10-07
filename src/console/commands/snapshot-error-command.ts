@@ -1,6 +1,5 @@
 import { Command, CommandRunner } from "@xieyuheng/command-line"
-import ty from "@xieyuheng/ty"
-import { paramCase } from "change-case"
+import { ty } from "@xieyuheng/ty"
 import fastGlob from "fast-glob"
 import app from "../../app"
 import { TestRunner } from "../../test-runner"
@@ -55,7 +54,7 @@ export class SnapshotErrorCommand extends Command<Args, Opts> {
     if (argv["extern"]) {
       for (const file of files) {
         const result = await runner.test(`${argv["program"]} ${file}`)
-        const generated = paramCase(`${argv["program"]} ${file}`)
+        const generated = ut.slug(`${argv["program"]}-${file}`)
         await result.snapshotError(argv["extern"] + "/" + generated + ".err")
       }
     } else {

@@ -11,3 +11,7 @@ const target = "構造-the-constructivization-of-mathematics"
   ut.assertEquals(target, ut.slug("---「構造」 / The constructivization of mathematics___"))
   ut.assertEquals(target, ut.slug("---「構造」 / The_constructivization_of_mathematics___"))
 }
+
+{
+  ut.assertEquals("a-b-c", ut.slug("a/b/c"))
+}
