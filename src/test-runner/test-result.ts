@@ -1,7 +1,9 @@
 import fs from "fs"
 import Path from "path"
 import * as Loggers from "../loggers"
-import * as ut from "../ut"
+import { colors } from "../utils/colors"
+import { indent } from "../utils/indent"
+import { logLines } from "../utils/logLines"
 
 export class TestResult {
   target: string
@@ -91,21 +93,17 @@ export class TestResult {
 
   private reportError(): void {
     if (this.stderr || this.error) {
-      ut.logLines([
+      logLines([
         `I found error in the target program:`,
         ``,
-        ut.colors.yellow(`  program:`),
+        colors.yellow(`  program:`),
         ``,
         `    ${this.target}`,
         ``,
       ])
 
       if (this.stderr) {
-        ut.logLines([
-          ut.colors.yellow(`  stderr:`),
-          ``,
-          ut.indent(this.stderr, "    "),
-        ])
+        logLines([colors.yellow(`  stderr:`), ``, indent(this.stderr, "    ")])
       }
     }
   }
@@ -113,10 +111,10 @@ export class TestResult {
   private reportNonError(): void {
     if (this.stderr || this.error) return
 
-    ut.logLines([
+    logLines([
       `I expect to found error in the target program:`,
       ``,
-      ut.colors.yellow(`  program:`),
+      colors.yellow(`  program:`),
       ``,
       `    ${this.target}`,
       ``,
@@ -125,11 +123,7 @@ export class TestResult {
     ])
 
     if (this.stdout) {
-      ut.logLines([
-        ut.colors.yellow(`  stdout:`),
-        ``,
-        ut.indent(this.stdout, "    "),
-      ])
+      logLines([colors.yellow(`  stdout:`), ``, indent(this.stdout, "    ")])
     }
   }
 }

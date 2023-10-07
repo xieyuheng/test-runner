@@ -3,7 +3,8 @@ import { ty } from "@xieyuheng/ty"
 import fastGlob from "fast-glob"
 import app from "../../app"
 import { TestRunner } from "../../test-runner"
-import * as ut from "../../ut"
+import { colors } from "../../utils/colors"
+import { slug } from "../../utils/slug"
 
 type Args = { program: string; glob: string }
 type Opts = { extern?: string; exclude?: string }
@@ -19,24 +20,24 @@ export class SnapshotErrorCommand extends Command<Args, Opts> {
   // prettier-ignore
   help(runner: CommandRunner): string {
     return [
-      `The ${ut.colors.blue(this.name)} command take a program name, a glob pattern for files,`,
+      `The ${colors.blue(this.name)} command take a program name, a glob pattern for files,`,
       `and run the program over each file in the files,`,
       `then write output of each result to an output file named '<file>.err'`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} ts-node 'src/**/*.error.ts'`),
+      colors.blue(`  ${runner.name} ${this.name} ts-node 'src/**/*.error.ts'`),
       ``,
       `The example above will write output to 'src/**/*.error.ts.err'`,
       ``,
       `Note that, snapshot output file should be checked into source control.`,
       `We can use '--extern <dir>' to specify an external output directory.`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} node 'lib/**/*.error.js' --extern snapshot`),
+      colors.blue(`  ${runner.name} ${this.name} node 'lib/**/*.error.js' --extern snapshot`),
       ``,
       `Then the output will be written into 'snapshot/<generated-flat-file-name>.err'`,
       ``,
       `Another example:`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} cic 'tests/**/*.error.(cic|md)'`),
+      colors.blue(`  ${runner.name} ${this.name} cic 'tests/**/*.error.(cic|md)'`),
       ``,
     ].join("\n")
   }
@@ -54,7 +55,7 @@ export class SnapshotErrorCommand extends Command<Args, Opts> {
     if (argv["extern"]) {
       for (const file of files) {
         const result = await runner.test(`${argv["program"]} ${file}`)
-        const generated = ut.slug(`${argv["program"]}-${file}`)
+        const generated = slug(`${argv["program"]}-${file}`)
         await result.snapshotError(argv["extern"] + "/" + generated + ".err")
       }
     } else {

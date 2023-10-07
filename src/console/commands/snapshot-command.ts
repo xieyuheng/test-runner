@@ -3,10 +3,11 @@ import { ty } from "@xieyuheng/ty"
 import fastGlob from "fast-glob"
 import app from "../../app"
 import { TestRunner } from "../../test-runner"
-import * as ut from "../../ut"
+import { colors } from "../../utils/colors"
+import { slug } from "../../utils/slug"
 
-type Args = { program: string; glob: string }
-type Opts = { extern?: string; exclude?: string }
+export type Args = { program: string; glob: string }
+export type Opts = { extern?: string; exclude?: string }
 
 export class SnapshotCommand extends Command<Args, Opts> {
   name = "snapshot"
@@ -19,26 +20,26 @@ export class SnapshotCommand extends Command<Args, Opts> {
   // prettier-ignore
   help(runner: CommandRunner): string {
     return [
-      `The ${ut.colors.blue(this.name)} command take a program name, a glob pattern for files,`,
+      `The ${colors.blue(this.name)} command take a program name, a glob pattern for files,`,
       `and run the program over each file in the files,`,
       `then write output of each result to an output file named '<file>.out'`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} ts-node 'src/**/*.snapshot.ts'`),
+      colors.blue(`  ${runner.name} ${this.name} ts-node 'src/**/*.snapshot.ts'`),
       ``,
       `The example above will write output to 'src/**/*.snapshot.ts.out'`,
       ``,
       `Note that, snapshot output file should be checked into source control.`,
       `We can use '--extern <dir>' to specify an external output directory.`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} node 'lib/**/*.snapshot.js' --extern snapshot`),
+      colors.blue(`  ${runner.name} ${this.name} node 'lib/**/*.snapshot.js' --extern snapshot`),
       ``,
       `Then the output will be written into 'snapshot/<generated-flat-file-name>.out'`,
       ``,
-      `The ${ut.colors.blue(this.name)} command also support '--exclude <glob>' option.`,
+      `The ${colors.blue(this.name)} command also support '--exclude <glob>' option.`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} cic 'tests/**/*.(cic|md)' --exclude 'tests/**/*.error.(cic|md)'`),
+      colors.blue(`  ${runner.name} ${this.name} cic 'tests/**/*.(cic|md)' --exclude 'tests/**/*.error.(cic|md)'`),
       ``,
-    ].join("\n")
+    ].join("\n");
   }
 
   async execute(argv: Args & Opts): Promise<void> {
@@ -54,7 +55,7 @@ export class SnapshotCommand extends Command<Args, Opts> {
     if (argv["extern"]) {
       for (const file of files) {
         const result = await runner.test(`${argv["program"]} ${file}`)
-        const generated = ut.slug(`${argv["program"]}-${file}`)
+        const generated = slug(`${argv["program"]}-${file}`)
         await result.snapshot(argv["extern"] + "/" + generated + ".out")
       }
     } else {

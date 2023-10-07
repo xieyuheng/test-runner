@@ -3,7 +3,7 @@ import { ty } from "@xieyuheng/ty"
 import fastGlob from "fast-glob"
 import app from "../../app"
 import { TestRunner } from "../../test-runner"
-import * as ut from "../../ut"
+import { colors } from "../../utils/colors"
 
 type Args = { program: string; glob: string }
 type Opts = { exclude?: string }
@@ -19,14 +19,14 @@ export class TestCommand extends Command<Args, Opts> {
   // prettier-ignore
   help(runner: CommandRunner): string {
     return [
-      `The ${ut.colors.blue(this.name)} command take a program name, a glob pattern for files,`,
+      `The ${colors.blue(this.name)} command take a program name, a glob pattern for files,`,
       `and run the program over each file in the files.`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} node 'lib/**/*.test.js'`),
+      colors.blue(`  ${runner.name} ${this.name} node 'lib/**/*.test.js'`),
       ``,
       `We can use '--exclude <glob>' exclude some files.`,
       ``,
-      ut.colors.blue(`  ${runner.name} ${this.name} cic 'tests/**/*.(cic|md)' --exclude 'tests/**/*.error.(cic|md)'`),
+      colors.blue(`  ${runner.name} ${this.name} cic 'tests/**/*.(cic|md)' --exclude 'tests/**/*.error.(cic|md)'`),
       ``,
     ].join("\n")
   }

@@ -1,1 +1,1 @@
-- `test-runner snapshot` should delete output file when there is no output
+`test-runner snapshot` should delete output file when there is no output

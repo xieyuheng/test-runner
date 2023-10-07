@@ -1,4 +1,4 @@
-import * as ut from "../ut"
+import { colors } from "./colors"
 
 export async function test(
   description: string,
@@ -6,11 +6,11 @@ export async function test(
 ): Promise<void> {
   await fn()
     .then(() => {
-      const head = ut.colors.blue("Ok")
+      const head = colors.blue("Ok")
       console.log(`${head}: ${description}`)
     })
     .catch((error) => {
-      const head = ut.colors.red("Fail")
+      const head = colors.red("Fail")
       console.error(`${head}: ${description}`)
       console.error(error)
       throw error

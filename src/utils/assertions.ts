@@ -1,4 +1,4 @@
-import * as ut from "../ut"
+import equal from "fast-deep-equal"
 
 export function assert(value: any): void {
   if (!value) {
@@ -13,7 +13,7 @@ export function assert(value: any): void {
 }
 
 export function assertEquals(x: any, y: any): void {
-  if (!ut.equal(x, y)) {
+  if (!equal(x, y)) {
     throw new Error(
       [
         "I fail to assert equal, the following two values are not equal.",
@@ -25,7 +25,7 @@ export function assertEquals(x: any, y: any): void {
 }
 
 export function assertNotEquals(x: any, y: any): void {
-  if (ut.equal(x, y)) {
+  if (equal(x, y)) {
     throw new Error(
       [
         "I fail to assert not equal, the following two values are equal.",
