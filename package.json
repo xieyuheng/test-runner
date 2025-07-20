@@ -1,12 +1,12 @@
 {
-  "name": "@xieyuheng/test-runner",
+  "name": "@xieyuheng/test-runner.js",
   "version": "0.2.10",
-  "repository": "github:xieyuheng/test-runner",
+  "repository": "github:xieyuheng/test-runner.js",
   "files": [
     "lib"
   ],
   "bin": {
-    "test-runner": "bin/test-runner.js"
+    "test-runner.js": "bin/test-runner.js"
   },
   "scripts": {
     "build": "tsc",
