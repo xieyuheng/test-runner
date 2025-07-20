@@ -1,8 +1,8 @@
 import fs from "fs"
 import Path from "path"
-import * as Loggers from "../loggers"
 import { colors } from "../utils/colors"
 import { indent } from "../utils/indent"
+import { log } from "../utils/log"
 import { logLines } from "../utils/logLines"
 
 export class TestResult {
@@ -11,8 +11,6 @@ export class TestResult {
   stderr: string
   elapse: number
   error?: any
-
-  logger = new Loggers.PrettyLogger()
 
   constructor(opts: {
     target: string
@@ -29,7 +27,7 @@ export class TestResult {
   }
 
   assertOk(): void {
-    this.logger.info({
+    log({
       tag: "ok",
       msg: this.target,
       elapse: this.elapse,
@@ -46,7 +44,7 @@ export class TestResult {
   }
 
   async snapshot(output: string): Promise<void> {
-    this.logger.info({
+    log({
       tag: "snapshot",
       msg: this.target,
       elapse: this.elapse,
@@ -69,7 +67,7 @@ export class TestResult {
   }
 
   async snapshotError(output: string): Promise<void> {
-    this.logger.info({
+    log({
       tag: "snapshot-error",
       msg: this.target,
       elapse: this.elapse,

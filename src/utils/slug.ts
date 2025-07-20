@@ -6,7 +6,7 @@ export function slug(text: string): string {
     .replace(/\s/gu, "-")
     .replace(/_/g, "-")
     .replace(/\//g, "-")
-    .replace(/\./g, "-")  
+    .replace(/\./g, "-")
     .replace(/\-+/g, "-")
     .replace(/\-$/g, "")
     .replace(/^\-/g, "")

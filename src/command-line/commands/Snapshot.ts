@@ -1,9 +1,9 @@
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import { ty } from "@xieyuheng/ty"
 import fastGlob from "fast-glob"
-import app from "../../app"
 import { TestRunner } from "../../test-runner"
 import { colors } from "../../utils/colors"
+import { log } from "../../utils/log"
 import { slug } from "../../utils/slug"
 
 export type Args = { program: string; glob: string }
@@ -45,7 +45,7 @@ export class Snapshot extends Command<Args, Opts> {
   async execute(argv: Args & Opts): Promise<void> {
     const runner = new TestRunner()
 
-    app.logger.info(runner.info())
+    log(runner.info())
 
     const exclude = argv["exclude"] ? await fastGlob(argv["exclude"]) : []
     const files = (await fastGlob(argv["glob"])).filter(
